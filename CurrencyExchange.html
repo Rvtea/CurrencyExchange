@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Days Counter</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type='text/javascript' language='javascript' src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script type='text/javascript' language='javascript' src="currency.js"></script>
+    <link rel="stylesheet" href="currency.css">
+    <title> JavaScript Timer on Webpage
+    </title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Currency Exchange Calculation</h2>
+        <div id="setTime">
+            Input the number:
+            <input type="text" id="inputNumber" v-model="sourceCurrencyNumber"></input>
+        </div>
+        <table id="currencies">
+            <tr v-for="tarNum in targetCurrencyNumber">
+                <td class="info-left">Current currency can exchange for</td>
+                <td class="exchange-calculation"><strong class="number">{{ tarNum }}</strong></td>
+                <td class="info-right">RMB!</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
