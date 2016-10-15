@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Days Counter</title>
+    <title>Currency Exchange Calculation</title>
     <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -17,14 +17,14 @@
     <div id="container">
         <h2>Currency Exchange Calculation</h2>
         <div id="setTime">
-            Input the number:
-            <input type="text" id="inputNumber" v-model="sourceCurrencyNumber"></input>
+            Input the number of RMB(CNY): ¥
+            <input type="text" maxlength="12" id="inputNumber" v-model="sourceCurrencyNumber"></input>
         </div>
         <table id="currencies">
-            <tr v-for="tarNum in targetCurrencyNumber">
-                <td class="info-left">Current currency can exchange for</td>
-                <td class="exchange-calculation"><strong class="number">{{ tarNum }}</strong></td>
-                <td class="info-right">RMB!</td>
+            <tr v-for="(tarCurrency, index) in targetCurrencies">
+                <td class="info-left">Your RMB can exchange for</td>
+                <td class="exchange-calculation"><strong class="number">{{ tarCurrency[1] }}</strong></td>
+                <td class="info-right">{{ tarCurrency[2] }}!</td>
             </tr>
         </table>
     </div>
