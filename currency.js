@@ -7,9 +7,6 @@ var CurrencySymbol = {
     'GBP': '£',
     'JPY': 'JP¥'
 };
-var quote;
-var responseData;
-var exchanges = [];
 
 function currencyExchange(sourceCurrencyNumber, exchange) {
     var targetCurrencies = [];
@@ -20,6 +17,8 @@ function currencyExchange(sourceCurrencyNumber, exchange) {
     return targetCurrencies;
 }
 
+var quote;
+
 $().ready(function() {
     // http://developer.yahoo.com/yql/console/?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22CNYUSD%22%2C%20%22CNYEUR%22%2C%20%22CNYHKD%22%2C%20%22CNYGBP%22%2C%20%22CNYJPY%22)&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
     $.ajax({
@@ -29,9 +28,9 @@ $().ready(function() {
         jsonpCallback: "quote"
     });
     quote = function(data) {
-        responseData = data.query.results.rate;
+        var responseData = data.query.results.rate;
         // follow the sequence that targetCurrenciesName defines same as the response return to reduce process comlexity
-        exchanges = responseData.map((x) => x.Rate);
+        var exchanges = responseData.map((x) => x.Rate);
         var vm1 = new Vue({
             el: '#inputNumber',
             data: {
